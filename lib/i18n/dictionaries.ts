@@ -32,9 +32,13 @@ const en = {
     sub: "Get new releases, tour announcements & weekly devotionals — straight to your inbox.",
     placeholder: "your@email.com",
     cta: "Subscribe",
+    button: "Subscribe",
+    eyebrow: "Newsletter",
+    ok: "Welcome to the family! Check your inbox 💛",
+    err: "Couldn't subscribe. Please try again.",
     success: "Welcome to the family! Check your inbox 💛",
     error: "Couldn't subscribe. Please try again.",
-    consent:
+    privacy:
       "By subscribing you agree to receive emails from LEOKOKO. Unsubscribe anytime.",
   },
   merch: {
@@ -85,9 +89,13 @@ const sw: typeof en = {
     sub: "Pata habari za nyimbo mpya, ziara na mafundisho ya kila wiki — moja kwa moja kwenye barua pepe yako.",
     placeholder: "wewe@email.com",
     cta: "Jisajili",
+    button: "Jisajili",
+    eyebrow: "Jarida",
+    ok: "Karibu kwenye familia! Angalia barua pepe yako 💛",
+    err: "Imeshindikana. Tafadhali jaribu tena.",
     success: "Karibu kwenye familia! Angalia barua pepe yako 💛",
     error: "Imeshindikana. Tafadhali jaribu tena.",
-    consent:
+    privacy:
       "Kwa kujisajili unakubali kupokea barua pepe kutoka LEOKOKO. Unaweza kujiondoa wakati wowote.",
   },
   merch: {

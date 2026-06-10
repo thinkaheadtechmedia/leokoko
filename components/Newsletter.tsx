@@ -28,15 +28,15 @@ export default function Newsletter({ compact = false }: { compact?: boolean }) {
       const data = await res.json();
       if (res.ok) {
         setStatus("ok");
-        setMessage(t.newsletter.ok);
+        setMessage(t.newsletter.success);
         setEmail("");
       } else {
         setStatus("err");
-        setMessage(data.message ?? t.newsletter.err);
+        setMessage(data.message ?? t.newsletter.error);
       }
     } catch {
       setStatus("err");
-      setMessage(t.newsletter.err);
+      setMessage(t.newsletter.error);
     }
   };
 
