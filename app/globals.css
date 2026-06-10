@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-display: "Cinzel", "Playfair Display", Georgia, serif;
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-royal-950 text-royal-50 font-sans antialiased;
+    background-image:
+      radial-gradient(at 20% 10%, rgba(208, 165, 60, 0.08) 0px, transparent 50%),
+      radial-gradient(at 80% 90%, rgba(120, 60, 200, 0.15) 0px, transparent 50%),
+      linear-gradient(180deg, #120721 0%, #1f0e38 50%, #120721 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
+  }
+  h1, h2, h3, h4 {
+    @apply font-display tracking-wide;
+  }
+  ::selection {
+    @apply bg-gold-400 text-royal-950;
+  }
+}
+
+@layer components {
+  .container-prose {
+    @apply mx-auto max-w-6xl px-4 sm:px-6 lg:px-8;
+  }
+  .btn-gold {
+    @apply inline-flex items-center gap-2 rounded-full bg-gold-gradient
+           px-6 py-3 font-semibold text-royal-950 shadow-lg shadow-gold-500/20
+           transition-transform hover:scale-105 hover:shadow-gold-500/40
+           focus:outline-none focus:ring-2 focus:ring-gold-300;
+  }
+  .btn-outline {
+    @apply inline-flex items-center gap-2 rounded-full border-2 border-gold-400/60
+           px-6 py-3 font-semibold text-gold-200
+           transition hover:bg-gold-400/10 hover:border-gold-300;
+  }
+  .glass {
+    @apply bg-white/[0.04] backdrop-blur-md border border-white/10 rounded-2xl;
+  }
+  .gold-text {
+    @apply bg-gold-gradient bg-clip-text text-transparent;
+  }
+  .section-title {
+    @apply text-3xl md:text-5xl font-display gold-text mb-2;
+  }
+  .section-sub {
+    @apply text-royal-200/80 max-w-2xl;
+  }
+}
+
+/* Subtle shimmer on gold borders */
+.shimmer-border {
+  position: relative;
+  isolation: isolate;
+}
+.shimmer-border::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(240, 201, 74, 0.6),
+    transparent
+  );
+  background-size: 200% 100%;
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  animation: shimmer 3s linear infinite;
+  pointer-events: none;
+  z-index: -1;
+}
