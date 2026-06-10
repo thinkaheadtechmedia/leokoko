@@ -10,6 +10,12 @@ export const LOCALE_LABELS: Record<Locale, string> = {
   sw: "Kiswahili",
 };
 
+type DeepStringify<T> = T extends string
+  ? string
+  : T extends object
+  ? { [K in keyof T]: DeepStringify<T[K]> }
+  : T;
+
 const en = {
   brand: "LEOKOKO",
   tagline: "Lifting voices. Healing hearts. Glorifying God.",
@@ -67,7 +73,7 @@ const en = {
   },
 } as const;
 
-const sw: typeof en = {
+const sw: Dictionary = {
   brand: "LEOKOKO",
   tagline: "Tunainua sauti. Tunaponya mioyo. Tunamtukuza Mungu.",
   nav: {
@@ -124,10 +130,10 @@ const sw: typeof en = {
   },
 };
 
-const dictionaries: Record<Locale, typeof en> = { en, sw };
+const dictionaries: Record<Locale, Dictionary> = { en, sw };
 
 export function getDictionary(locale: Locale) {
   return dictionaries[locale] ?? dictionaries[DEFAULT_LOCALE];
 }
 
-export type Dictionary = typeof en;
+export type Dictionary = DeepStringify<typeof en>;
